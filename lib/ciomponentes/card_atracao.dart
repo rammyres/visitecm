@@ -5,23 +5,28 @@ class CardAtracao extends StatelessWidget {
   final String fotoUrl;
 
   const CardAtracao({
-    super.key,
+    Key? key,
     required this.nome,
     required this.fotoUrl,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(20),
       child: Stack(
         alignment: Alignment.bottomRight,
         children: [
-          Image.network(
-            fotoUrl,
-            height: 200.0,
+          Container(
+            padding: const EdgeInsets.all(8),
             width: double.infinity,
-            fit: BoxFit.cover,
+            height: 200.0, // Defina a altura desejada
+            child: FittedBox(
+              fit: BoxFit.cover,
+              child: Image.network(
+                fotoUrl,
+              ),
+            ),
           ),
           Container(
             decoration: BoxDecoration(

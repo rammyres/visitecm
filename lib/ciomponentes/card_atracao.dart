@@ -13,7 +13,7 @@ class CardAtracao extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Stack(
         alignment: Alignment.bottomRight,
         children: [

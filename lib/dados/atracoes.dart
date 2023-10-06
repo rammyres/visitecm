@@ -1,5 +1,18 @@
 import '../modelos/atracao.dart';
 
+///
+///  Para criar uma nova atração copiem o seguinte código removendo o * inicial:
+///
+///  Atracao(
+///  id: 0,
+///  nome "Nome da atração",
+///  foto: "link para a foto",
+///  localizacao: "link para a localização no google maps"),
+///
+/// A partir dai basta mudar o numero da id pelo próximo numero ainda não usado
+///  e os demais dados conforme a atração
+///
+
 final atracoes = [
   Atracao(
     id: "1",

@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => const TelaInicial(),
+        '/': (context) => TelaInicial(),
         // Adicione a rota para a tela de detalhes da atração aqui
         // Exemplo: '/detalhes': (context) => DetalhesAtracaoScreen(),
       },

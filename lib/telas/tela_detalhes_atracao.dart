@@ -11,16 +11,20 @@ class DetalhesAtracaoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Detalhes da Atração'),
+        title: Text(atracao.nome),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Image.network(
-              atracao.foto,
-              fit: BoxFit.cover,
-              height: 200.0,
+            Hero(
+              tag: atracao
+                  .foto, // Use a mesma tag que foi definida no CardAtracao
+              child: Image.network(
+                atracao.foto,
+                fit: BoxFit.cover,
+                height: 200.0,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),

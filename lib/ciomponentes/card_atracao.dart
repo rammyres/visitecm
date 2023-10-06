@@ -1,54 +1,66 @@
 import 'package:flutter/material.dart';
+import '../telas/tela_detalhes_atracao.dart';
+import '../modelos/atracao.dart';
 
 class CardAtracao extends StatelessWidget {
-  final String nome;
-  final String fotoUrl;
+  final Atracao atracao;
 
   const CardAtracao({
     Key? key,
-    required this.nome,
-    required this.fotoUrl,
+    required this.atracao,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      child: Stack(
-        alignment: Alignment.bottomRight,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(8),
-            width: double.infinity,
-            height: 200.0, // Defina a altura desejada
-            child: FittedBox(
-              fit: BoxFit.cover,
+    return Card(
+      elevation: 4.0,
+      margin: const EdgeInsets.all(8.0),
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => DetalhesAtracaoScreen(atracao: atracao),
+            ),
+          );
+        },
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
               child: Image.network(
-                fotoUrl,
+                atracao.foto,
+                fit: BoxFit.cover,
+                height: double.infinity,
+                width: double.infinity,
               ),
             ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: [Colors.transparent, Colors.blue.withOpacity(0.7)],
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft, // Canto superior esquerdo
+                  end: Alignment.bottomRight, // Canto inferior direito
+                  colors: [
+                    Colors.blue.withOpacity(0.4), // Diminuí a opacidade do azul
+                    Colors.blue.withOpacity(0.0),
+                  ],
+                ),
+              ),
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  atracao.nome,
+                  style: const TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.right,
+                ),
               ),
             ),
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: Text(
-              nome,
-              style: const TextStyle(
-                fontSize: 18.0,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

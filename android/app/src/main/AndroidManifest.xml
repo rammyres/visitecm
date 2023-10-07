@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="visite_cm"
+        android:label="Visite Campo Maior"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

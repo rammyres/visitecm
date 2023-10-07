@@ -5,7 +5,7 @@ import '../modelos/atracao.dart';
 class DetalhesAtracaoScreen extends StatelessWidget {
   final Atracao atracao;
 
-  DetalhesAtracaoScreen({required this.atracao});
+  const DetalhesAtracaoScreen({super.key, required this.atracao});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class DetalhesAtracaoScreen extends StatelessWidget {
               ),
             ),
             // Adicione aqui o widget do Google Maps com a localização da atração
-            Container(
+            SizedBox(
               height: 300.0, // Defina a altura do mapa conforme necessário
               child: GoogleMap(
                 initialCameraPosition: CameraPosition(

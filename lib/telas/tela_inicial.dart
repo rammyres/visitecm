@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import '../dados/atracoes.dart';
-import '../ciomponentes/card_atracao.dart'; // Importe o widget CardAtracao
+import '../componentes/card_atracao.dart'; // Importe o widget CardAtracao
 import '../modelos/atracao.dart';
 import '../telas/tela_detalhes_atracao.dart'; // Importe a tela DetalhesAtracaoScreen
 
 class TelaInicial extends StatefulWidget {
+  const TelaInicial({Key? key}) : super(key: key);
+
   @override
   _TelaInicialState createState() => _TelaInicialState();
 }
@@ -26,7 +28,7 @@ class _TelaInicialState extends State<TelaInicial> {
               ? 3
               : screenWidth > 400
                   ? 2
-                  : 1;
+                  : 2; // Valor mínimo definido como 2
 
           // Filtra as atrações com base no texto de filtragem
           List<Atracao> atracoesFiltradas = atracoes.where((atracao) {

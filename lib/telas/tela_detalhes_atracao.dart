@@ -5,7 +5,8 @@ import '../modelos/atracao.dart';
 class DetalhesAtracaoScreen extends StatelessWidget {
   final Atracao atracao;
 
-  const DetalhesAtracaoScreen({super.key, required this.atracao});
+  const DetalhesAtracaoScreen({Key? key, required this.atracao})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +19,7 @@ class DetalhesAtracaoScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Hero(
-              tag: atracao
-                  .foto, // Use a mesma tag que foi definida no CardAtracao
+              tag: atracao.foto,
               child: Image.network(
                 atracao.foto,
                 fit: BoxFit.cover,
@@ -38,14 +38,24 @@ class DetalhesAtracaoScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Text(
-                atracao.descricao.join('\n'),
-                style: const TextStyle(fontSize: 16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: atracao.descricao.map((paragrafo) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        paragrafo,
+                        style: const TextStyle(fontSize: 16.0),
+                      ),
+                      const SizedBox(height: 8.0), // Espaço entre os parágrafos
+                    ],
+                  );
+                }).toList(),
               ),
             ),
-            // Adicione aqui o widget do Google Maps com a localização da atração
             SizedBox(
-              height: 300.0, // Defina a altura do mapa conforme necessário
+              height: 300.0,
               child: GoogleMap(
                 initialCameraPosition: CameraPosition(
                   target: LatLng(atracao.latitude, atracao.longitude),

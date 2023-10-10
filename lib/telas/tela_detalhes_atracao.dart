@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:carousel_slider/carousel_slider.dart'; // Importe o pacote carousel_slider
 import '../modelos/atracao.dart';
 
 class DetalhesAtracaoScreen extends StatelessWidget {
@@ -18,12 +19,23 @@ class DetalhesAtracaoScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Hero(
-              tag: atracao.foto,
-              child: Image.network(
-                atracao.foto,
-                fit: BoxFit.cover,
-                height: 200.0,
+            CarouselSlider.builder(
+              itemCount: atracao.fotos.length,
+              itemBuilder: (BuildContext context, int index, int realIndex) {
+                // Use as imagens da lista de fotos da atração
+                final String foto = atracao.fotos[index];
+                return Image.network(
+                  foto,
+                  fit: BoxFit.cover,
+                  height: 200.0,
+                );
+              },
+              options: CarouselOptions(
+                autoPlay: true,
+                enlargeCenterPage: true,
+                aspectRatio: 16 / 9,
+                viewportFraction: 0.8,
+                initialPage: 0,
               ),
             ),
             Padding(

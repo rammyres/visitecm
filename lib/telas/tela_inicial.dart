@@ -1,86 +1,110 @@
 import 'package:flutter/material.dart';
-import '../dados/atracoes.dart';
-import '../componentes/card_atracao.dart'; // Importe o widget CardAtracao
-import '../modelos/atracao.dart';
-import '../telas/tela_detalhes_atracao.dart'; // Importe a tela DetalhesAtracaoScreen
+import 'tela_atracoes.dart'; // Importe a tela TelaAtracoes
+import 'tela_ondecebs.dart'; // Importe a tela TelaOndeCeB
 
-class TelaInicial extends StatefulWidget {
+class TelaInicial extends StatelessWidget {
   const TelaInicial({Key? key}) : super(key: key);
 
   @override
-  _TelaInicialState createState() => _TelaInicialState();
-}
-
-class _TelaInicialState extends State<TelaInicial> {
-  String filtro = ""; // Variável para armazenar o texto de filtragem
-
-  @override
   Widget build(BuildContext context) {
+    // Obtém a largura da tela
+    //final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bem vindos a Campo Maior'),
+        title: const Text('Bem-vindos a Campo Maior'),
       ),
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          // Determine o número de colunas com base no tamanho da tela
-          final screenWidth = constraints.maxWidth;
-          final crossAxisCount = screenWidth > 600
-              ? 3
-              : screenWidth > 400
-                  ? 2
-                  : 2; // Valor mínimo definido como 2
-
-          // Filtra as atrações com base no texto de filtragem
-          List<Atracao> atracoesFiltradas = atracoes.where((atracao) {
-            final nomeAtracao = atracao.nome.toLowerCase();
-            return nomeAtracao.contains(filtro.toLowerCase());
-          }).toList();
-
-          return Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextField(
-                  onChanged: (value) {
-                    setState(() {
-                      filtro = value;
-                    });
-                  },
-                  decoration: const InputDecoration(
-                    labelText: 'Filtrar por nome',
-                    hintText: 'Digite o nome da atração',
-                    prefixIcon: Icon(Icons.search),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 4.0,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const TelaAtracoesTuristicas(), // Navegue para a tela de atrações
                   ),
-                ),
-              ),
-              Expanded(
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: crossAxisCount,
-                  ),
-                  itemCount: atracoesFiltradas.length,
-                  itemBuilder: (ctx, index) {
-                    final atracao = atracoesFiltradas[index];
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                DetalhesAtracaoScreen(atracao: atracao),
-                          ),
-                        );
-                      },
-                      child: CardAtracao(
-                        atracao: atracao,
+                );
+              },
+              child: SizedBox(
+                width: double.infinity, // Largura máxima de 80% da tela
+                child: Stack(
+                  alignment: Alignment.bottomRight,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0),
+                      child: Image.network(
+                        'https://piauihoje.com/uploads/imagens/5435139914-e1f187cbeb-b-1671742751.jpg', // URL da imagem da Serra de Santo Antônio
+                        fit: BoxFit.cover, // Ajuste a imagem ao tamanho do card
                       ),
-                    );
-                  },
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Text(
+                        'Atrações Turísticas',
+                        style: TextStyle(
+                          fontSize: 22.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          );
-        },
+            ),
+          ),
+          const SizedBox(height: 16), // Espaço entre os cards
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16.0),
+            ),
+            elevation: 4.0,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const TelaOndeCeB(), // Navegue para a tela de Onde CeB
+                  ),
+                );
+              },
+              child: SizedBox(
+                width: double.infinity, // Largura máxima de 80% da tela
+                child: Stack(
+                  alignment: Alignment.bottomRight,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: Image.network(
+                        'https://img.restaurantguru.com/r9e8-exterior-Churrascaria-Hawai-2022-10-1.jpg', // URL da imagem do Hawaii Grill
+                        fit: BoxFit.cover, // Ajuste a imagem ao tamanho do card
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Text(
+                        'Onde Comer e Beber',
+                        style: TextStyle(
+                          fontSize: 22.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

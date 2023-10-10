@@ -15,10 +15,12 @@ import '../modelos/atracao.dart';
 
 final atracoes = [
   Atracao(
-    id: "1",
+    id: "tur1",
     nome: "Açude Grade",
-    foto:
-        "https://www.campomaior.pi.gov.br/kcfinder/images/394906_525751784113036_1879819764_n.jpg",
+    fotos: [
+      "https://www.campomaior.pi.gov.br/kcfinder/images/394906_525751784113036_1879819764_n.jpg",
+      "https://scontent.fthe3-1.fna.fbcdn.net/v/t39.30808-6/326273118_2203886066459080_7412727166478090396_n.png?_nc_cat=100&ccb=1-7&_nc_sid=52f669&_nc_ohc=qOg9Vzw1fnUAX9HoY5G&_nc_ht=scontent.fthe3-1.fna&oh=00_AfBVb803CxFzAw44nZITkznxSuCAWXxW5EOBWF9mhcVbNA&oe=65295583",
+    ],
     descricao: [
       "O Açude Grande de Campo Maior foi construido entre 1858 e 1859, em obra realida pelo Cel. Jacob Almendra.",
       "Durante anos foi foco de atenção da cidade de Campo Maior, tendo sido as suas margens instalada a conhecida 'Praça da Radar', posteriormente reformada para o Complexo Cultural Valdir Fortes e o restaurante Hawaii.",
@@ -28,10 +30,11 @@ final atracoes = [
         "https://www.google.com/maps/@-4.833189583616752,-42.168444502722956?entry=ttu",
   ),
   Atracao(
-    id: "2",
+    id: "tur2",
     nome: "Pé da Serra",
-    foto:
-        "https://causosassustadoresdopiaui.files.wordpress.com/2017/06/17626403_1849107248683605_8142188402617499941_n.jpg",
+    fotos: [
+      "https://causosassustadoresdopiaui.files.wordpress.com/2017/06/17626403_1849107248683605_8142188402617499941_n.jpg",
+    ],
     descricao: [
       "O Pé da Serra de Campo Maior é um conjunto de formações rochosas que abriga morros, piscinas naturais, rios e cachoeiras. Oficialmente é conhecido como Serra de Santo Antônio.",
       "Em um de seus morros foi instaldo um mirante e um crucifixo, acessível por uma escadaria que serve como 'trilha'.",
@@ -40,10 +43,11 @@ final atracoes = [
         "https://www.google.com/maps/@-5.083204960330369,-42.08333329999999?entry=ttu",
   ),
   Atracao(
-    id: "3",
+    id: "tur3",
     nome: "Monumento do Jenipapo",
-    foto:
-        "https://www.conhecaopiaui.com/images/posts/20190316160042_6hwhf5Sd_995184149435_ujUGsZB9.jpeg",
+    fotos: [
+      "https://www.conhecaopiaui.com/images/posts/20190316160042_6hwhf5Sd_995184149435_ujUGsZB9.jpeg",
+    ],
     descricao: [
       "O monumento que marca o local do combate contra as tropas portuguesas, única sangrenta no processo de independência do Brasil.",
       "Junto ao monumento existe também o Cemitério do Batalhão e o Museu do Couro.",
@@ -52,10 +56,11 @@ final atracoes = [
         "https://www.google.com/maps/place/Monumento+aos+Her%C3%B3is+do+Jenipapo/@-4.7823835,-42.1184066,16z",
   ),
   Atracao(
-    id: "4",
+    id: "tur4",
     nome: "Cachoeira da Bica",
-    foto:
-        "https://www.conhecaopiaui.com/photos/2/cachoeira_bica_campo_maior_3.jpg",
+    fotos: [
+      "https://www.conhecaopiaui.com/photos/2/cachoeira_bica_campo_maior_3.jpg",
+    ],
     descricao: [
       "A Cachoeira da Bica é uma cachoeira localizada no povoado Bela Vista. Sua beleza atrai turistas, especialmente durante e estação chuvosa."
     ],
@@ -63,10 +68,11 @@ final atracoes = [
         "https://www.google.com/maps/place/EcoParque+%22Cachoeira+da+Bica%22/@-4.994954,-41.929238,15z",
   ),
   Atracao(
-    id: "5",
+    id: "tur5",
     nome: "Barragens do Emparedado e Corredores",
-    foto:
-        "https://piauihoje.com/uploads/editor/1645297661536_51af67432abb48aa152270221948b0ce816508f8.jpg",
+    fotos: [
+      "https://piauihoje.com/uploads/editor/1645297661536_51af67432abb48aa152270221948b0ce816508f8.jpg",
+    ],
     descricao: [
       "As barragens Emparedado e Corredores se localizam no Povoado Cacimbas em Campo Maior.",
       "Ambas as barragens são conhecidas por atrair muitos visitantes durante o período chuvoso, já que fornecem opções acessíveis de banhos.",

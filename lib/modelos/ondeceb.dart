@@ -1,18 +1,26 @@
-class Atracao {
+enum Preco {
+  caro,
+  ok,
+  barato,
+}
+
+class OndeCeB {
   final String id;
   final String nome;
   final List<String> fotos;
   final List<String> descricao;
   final String localizacao;
+  final Preco preco;
   double latitude = 0;
   double longitude = 0;
 
-  Atracao({
+  OndeCeB({
     required this.id,
     required this.nome,
     required this.fotos,
     required this.descricao,
     required this.localizacao,
+    required this.preco,
   }) {
     // Extrai as coordenadas de latitude e longitude da URL do Google Maps
     final regex = RegExp(r'@([-+]?\d+\.\d+),([-+]?\d+\.\d+)');

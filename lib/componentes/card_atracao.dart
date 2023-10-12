@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:visite_cm/modelos/atracao.dart';
 import 'package:visite_cm/telas/tela_detalhes_atracao.dart';
+import 'package:visite_cm/componentes/favoritos.dart';
 
-class CardAtracao extends StatelessWidget {
+class CardAtracao extends StatefulWidget {
   final Atracao atracao;
 
   const CardAtracao({
@@ -11,10 +12,45 @@ class CardAtracao extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _CardAtracaoState createState() => _CardAtracaoState();
+}
+
+class _CardAtracaoState extends State<CardAtracao> {
+  bool favorito = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _verificarFavorito();
+  }
+
+  void _verificarFavorito() async {
+    final favorito = await FavoritosManager.isFavorito(widget.atracao.id);
+    if (mounted) {
+      setState(() {
+        this.favorito = favorito;
+      });
+    }
+  }
+
+  void _toggleFavorito() async {
+    if (favorito) {
+      await FavoritosManager.removerFavorito(widget.atracao.id);
+    } else {
+      await FavoritosManager.adicionarFavorito(widget.atracao.id);
+    }
+    if (mounted) {
+      setState(() {
+        favorito = !favorito;
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     // Use a primeira imagem da lista de fotos da atração
     final String primeiraFoto =
-        atracao.fotos.isNotEmpty ? atracao.fotos[0] : '';
+        widget.atracao.fotos.isNotEmpty ? widget.atracao.fotos[0] : '';
 
     return Card(
       elevation: 4.0,
@@ -23,7 +59,8 @@ class CardAtracao extends StatelessWidget {
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => DetalhesAtracaoScreen(atracao: atracao),
+              builder: (context) =>
+                  DetalhesAtracaoScreen(atracao: widget.atracao),
             ),
           );
         },
@@ -36,12 +73,12 @@ class CardAtracao extends StatelessWidget {
                 child: Image.network(
                   primeiraFoto,
                   fit: BoxFit.cover,
-                  height: double.infinity,
+                  height: 200,
                   width: double.infinity,
                 ),
               ),
               Container(
-                alignment: Alignment.bottomCenter,
+                alignment: Alignment.bottomLeft,
                 child: Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -53,15 +90,30 @@ class CardAtracao extends StatelessWidget {
                       ],
                     ),
                   ),
-                  padding: const EdgeInsets.only(bottom: 8.0),
-                  child: Text(
-                    atracao.nome,
-                    style: const TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.right,
+                  padding: const EdgeInsets.only(bottom: 8.0, left: 8.0),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: Icon(
+                          favorito ? Icons.favorite : Icons.favorite_border,
+                          color: favorito ? Colors.red : Colors.white,
+                        ),
+                        onPressed: () {
+                          _toggleFavorito();
+                        },
+                      ),
+                      Text(
+                        widget.atracao.nome.length > 12
+                            ? widget.atracao.nome.substring(0, 12) + "..."
+                            : widget.atracao.nome,
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.right,
+                      ),
+                    ],
                   ),
                 ),
               ),

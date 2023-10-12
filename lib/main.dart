@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'telas/tela_inicial.dart';
+import 'package:visite_cm/telas/tela_atracoes.dart';
+import 'package:visite_cm/telas/tela_favoritos.dart';
+import 'package:visite_cm/telas/tela_ondecebs.dart';
 
 void main() => runApp(const VisiteCM());
 
@@ -12,8 +15,9 @@ class VisiteCM extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const TelaInicial(),
-        // Adicione a rota para a tela de detalhes da atração aqui
-        // Exemplo: '/detalhes': (context) => DetalhesAtracaoScreen(),
+        '/favoritos': (context) => TelaFavoritos(),
+        '/atracoes': (context) => const TelaAtracoesTuristicas(),
+        '/ondecebs': (context) => const TelaOndeCeB(),
       },
     );
   }

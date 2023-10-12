@@ -11,6 +11,12 @@ class DetalhesCeBScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(ceb.nome),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context); // Voltar para a tela anterior
+          },
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(

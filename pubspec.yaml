@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_maps_flutter: ^2.5.0
   carousel_slider: ^4.2.1
+  connectivity: ^3.0.6
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:

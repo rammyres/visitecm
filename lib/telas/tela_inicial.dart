@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'tela_atracoes.dart'; // Importe a tela TelaAtracoes
-import 'tela_ondecebs.dart';
+import 'package:visite_cm/dados/ondecebs.dart';
+import 'package:visite_cm/dados/atracoes.dart';
+import 'package:visite_cm/telas/tela_detalhes_ceb.dart';
+import 'package:visite_cm/componentes/card_atracao.dart';
+import 'package:visite_cm/componentes/card_ondeceb.dart';
+import 'package:visite_cm/telas/tela_detalhes_atracao.dart';
 import 'package:connectivity/connectivity.dart';
 
 class TelaInicial extends StatefulWidget {
@@ -11,151 +15,252 @@ class TelaInicial extends StatefulWidget {
 }
 
 class _TelaInicialState extends State<TelaInicial> {
-  bool isConnected = true; // Variável para rastrear o status da conexão
+  String filtro = "";
+  ConnectivityResult _connectivityResult = ConnectivityResult.none;
 
-  @override
-  void initState() {
-    super.initState();
-    _checkConnection();
+  int calculateCrossAxisCount(double width) {
+    if (width > 600) {
+      return 3;
+    } else if (width > 400) {
+      return 2;
+    } else {
+      return 1;
+    }
   }
 
-  Future<void> _checkConnection() async {
-    final result = await Connectivity().checkConnectivity();
+  Future<void> checkConnectivity() async {
+    final connectivityResult = await (Connectivity().checkConnectivity());
     setState(() {
-      isConnected = result != ConnectivityResult.none;
+      _connectivityResult = connectivityResult;
     });
   }
 
   @override
-  Widget build(BuildContext context) {
-    // Obtém a largura da tela
-    final screenWidth = MediaQuery.of(context).size.width;
+  void initState() {
+    super.initState();
+    checkConnectivity();
+  }
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Bem-vindos a Campo Maior'),
-      ),
-      body: RefreshIndicator(
-        onRefresh: _checkConnection,
-        child: ListView(
-          children: [
-            if (!isConnected)
-              Container(
-                // Exibir mensagem de falta de conexão
-                padding: const EdgeInsets.all(16.0),
-                alignment: Alignment.center,
-                child: const Text(
-                  'Sem conexão com a internet. Arraste para baixo para verificar.',
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
-            if (isConnected)
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                elevation: 4.0,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/atracoes');
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) =>
-                    //         const TelaAtracoesTuristicas(), // Navegue para a tela de atrações
-                    //   ),
-                    // );
-                  },
-                  child: SizedBox(
-                    width: screenWidth * 0.9, // Largura máxima de 80% da tela
-                    child: Stack(
-                      alignment: Alignment.bottomRight,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
-                          child: Image.network(
-                            'https://piauihoje.com/uploads/imagens/5435139914-e1f187cbeb-b-1671742751.jpg', // URL da imagem da Serra de Santo Antônio
-                            fit: BoxFit
-                                .cover, // Ajuste a imagem ao tamanho do card
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.all(16.0),
-                          child: Text(
-                            'Atrações Turísticas',
-                            style: TextStyle(
-                              fontSize: 22.0,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            const SizedBox(height: 16), // Espaço entre os cards
-            if (isConnected)
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                elevation: 4.0,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/ondecebs');
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) =>
-                    //         const TelaOndeCeB(), // Navegue para a tela de Onde CeB
-                    //   ),
-                    // );
-                  },
-                  child: SizedBox(
-                    width: screenWidth * 0.9, // Largura máxima de 80% da tela
-                    child: Stack(
-                      alignment: Alignment.bottomRight,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
-                          child: Image.network(
-                            'https://img.restaurantguru.com/r9e8-exterior-Churrascaria-Hawai-2022-10-1.jpg', // URL da imagem do Hawaii Grill
-                            fit: BoxFit
-                                .cover, // Ajuste a imagem ao tamanho do card
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.all(16.0),
-                          child: Text(
-                            'Onde Comer e Beber',
-                            style: TextStyle(
-                              fontSize: 22.0,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(context, '/favoritos'
-              // MaterialPageRoute(
-              //   builder: (context) =>
-              //       TelaFavoritos(), // Navegue para a tela de favoritos
-              // ),
-              );
-        },
-        child: const Icon(Icons.favorite), // Ícone de coração
+  Future<void> _refresh() async {
+    await checkConnectivity();
+    // Adicione aqui a lógica para atualizar a página, se necessário.
+  }
+
+  Widget _buildButton() {
+    return FloatingActionButton(
+      onPressed: () {
+        if (_connectivityResult != ConnectivityResult.none) {
+          _showFavorites(); // Navegar para a tela de favoritos
+        } else {
+          _refresh(); // Atualizar a página
+        }
+      },
+      child: Icon(
+        _connectivityResult != ConnectivityResult.none
+            ? Icons.favorite
+            : Icons.refresh,
       ),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // appBar: AppBar(
+      //   title: const Text('Tela Inicial'),
+      // ),
+      body: _buildContent(),
+      floatingActionButton: _buildButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  }
+
+  Widget _buildContent() {
+    if (_connectivityResult == ConnectivityResult.none) {
+      return const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(
+              Icons.warning,
+              size: 100,
+              color: Colors.red,
+            ),
+            Text(
+              'Sem conexão com a internet',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.red,
+              ),
+            ),
+            Text(
+              'Clique no botão de atualizar para verificar a conexão.',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.red,
+              ),
+            ),
+          ],
+        ),
+      );
+    } else {
+      return LayoutBuilder(
+        builder: (context, constraints) {
+          final screenWidth = constraints.maxWidth;
+          final crossAxisCount = calculateCrossAxisCount(screenWidth);
+
+          final atracoesFiltradas = atracoes
+              .where((atracao) =>
+                  atracao.nome.toLowerCase().contains(filtro.toLowerCase()))
+              .toList();
+
+          final ondecebsFiltrados = ondecebs
+              .where((ceb) =>
+                  ceb.nome.toLowerCase().contains(filtro.toLowerCase()))
+              .toList();
+
+          return CustomScrollView(
+            slivers: <Widget>[
+              SliverToBoxAdapter(
+                child: Stack(
+                  children: [
+                    Image.network(
+                      'https://i.ibb.co/T1bgMpK/image.png',
+                      fit: BoxFit.cover,
+                    ),
+                    const Positioned(
+                      top: 100,
+                      left: 50,
+                      right: 10,
+                      child: Text(
+                        "Bem vindos a Campo Maior!",
+                        style: TextStyle(
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 16,
+                      left: 10,
+                      right: 10,
+                      child: TextField(
+                        onChanged: (value) {
+                          setState(() {
+                            filtro = value;
+                          });
+                        },
+                        decoration: const InputDecoration(
+                          labelText: 'Filtrar por nome',
+                          hintText: 'Digite o nome da atração ou ceb',
+                          prefixIcon: Icon(Icons.search),
+                          filled: true,
+                          fillColor: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 40,
+                      right: 10,
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.info,
+                          color: Colors.white,
+                          size: 20,
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/sobre');
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SliverToBoxAdapter(
+                child: Center(
+                  child: Text(
+                    "Atrações turísticas",
+                    style: TextStyle(
+                      fontFamily: "Verdana",
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              SliverGrid(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: crossAxisCount,
+                ),
+                delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) {
+                    final atracao = atracoesFiltradas[index];
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                DetalhesAtracaoScreen(atracao: atracao),
+                          ),
+                        );
+                      },
+                      child: CardAtracao(
+                        atracao: atracao,
+                      ),
+                    );
+                  },
+                  childCount: atracoesFiltradas.length,
+                ),
+              ),
+              const SliverToBoxAdapter(
+                child: Center(
+                  child: Text(
+                    "Onde comer e beber",
+                    style: TextStyle(
+                      fontFamily: "Verdana",
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              SliverGrid(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: crossAxisCount,
+                ),
+                delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) {
+                    final ceb = ondecebsFiltrados[index];
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetalhesCeBScreen(ceb: ceb),
+                          ),
+                        );
+                      },
+                      child: CardOndeCeB(
+                        ceb: ceb,
+                      ),
+                    );
+                  },
+                  childCount: ondecebsFiltrados.length,
+                ),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
+
+  void _showFavorites() {
+    // Implemente a lógica para mostrar os favoritos aqui.
+    setState(() {
+      Navigator.pushNamed(context, '/favoritos');
+    });
   }
 }

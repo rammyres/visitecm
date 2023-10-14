@@ -77,8 +77,10 @@ class _CardAtracaoState extends State<CardAtracao> {
                   width: double.infinity,
                 ),
               ),
-              Container(
-                alignment: Alignment.bottomLeft,
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
                 child: Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -90,28 +92,33 @@ class _CardAtracaoState extends State<CardAtracao> {
                       ],
                     ),
                   ),
-                  padding: const EdgeInsets.only(bottom: 8.0, left: 8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      IconButton(
-                        icon: Icon(
-                          favorito ? Icons.favorite : Icons.favorite_border,
-                          color: favorito ? Colors.red : Colors.white,
+                      Expanded(
+                        child: Material(
+                          color: Colors.transparent,
+                          child: IconButton(
+                            icon: Icon(
+                              favorito ? Icons.favorite : Icons.favorite_border,
+                              color: favorito ? Colors.red : Colors.white,
+                            ),
+                            onPressed: () {
+                              _toggleFavorito();
+                            },
+                          ),
                         ),
-                        onPressed: () {
-                          _toggleFavorito();
-                        },
                       ),
-                      Text(
-                        widget.atracao.nome.length > 12
-                            ? widget.atracao.nome.substring(0, 12) + "..."
-                            : widget.atracao.nome,
-                        style: const TextStyle(
-                          fontSize: 16.0,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                      Expanded(
+                        flex: 2, // Ajuste o valor do flex conforme necessário
+                        child: Text(
+                          '${widget.atracao.nome.length > 11 ? '${widget.atracao.nome.substring(0, 10)}...' : widget.atracao.nome}',
+                          style: const TextStyle(
+                            fontSize: 16.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        textAlign: TextAlign.right,
                       ),
                     ],
                   ),

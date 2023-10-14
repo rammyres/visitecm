@@ -1,17 +1,4 @@
-import '../modelos/atracao.dart';
-
-///
-///  Para criar uma nova atração copiem o seguinte código removendo o * inicial:
-///
-///  Atracao(
-///  id: 0,
-///  nome "Nome da atração",
-///  foto: "link para a foto",
-///  localizacao: "link para a localização no google maps"),
-///
-/// A partir dai basta mudar o numero da id pelo próximo numero ainda não usado
-///  e os demais dados conforme a atração
-///
+import 'package:visite_cm/modelos/atracao.dart';
 
 final atracoes = [
   Atracao(
@@ -19,7 +6,8 @@ final atracoes = [
     nome: "Açude Grade",
     fotos: [
       "https://www.campomaior.pi.gov.br/kcfinder/images/394906_525751784113036_1879819764_n.jpg",
-      "https://scontent.fthe3-1.fna.fbcdn.net/v/t39.30808-6/326273118_2203886066459080_7412727166478090396_n.png?_nc_cat=100&ccb=1-7&_nc_sid=52f669&_nc_ohc=qOg9Vzw1fnUAX9HoY5G&_nc_ht=scontent.fthe3-1.fna&oh=00_AfBVb803CxFzAw44nZITkznxSuCAWXxW5EOBWF9mhcVbNA&oe=65295583",
+      "https://i.ibb.co/T1bgMpK/image.png",
+      "https://www.diariodecampomaior.com.br/images/noticias/114/WhatsApp-Image-2022-03-29-at-13.32.24.jpeg",
     ],
     descricao: [
       "O Açude Grande de Campo Maior foi construido entre 1858 e 1859, em obra realida pelo Cel. Jacob Almendra.",

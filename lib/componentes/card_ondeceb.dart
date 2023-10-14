@@ -21,7 +21,6 @@ class _CardOndeCeBState extends State<CardOndeCeB> {
   @override
   void initState() {
     super.initState();
-    // Verifique se a atração é um favorito ao inicializar o widget
     FavoritosManager.isFavorito(widget.ceb.id).then((favorito) {
       setState(() {
         isFavorito = favorito;
@@ -72,11 +71,10 @@ class _CardOndeCeBState extends State<CardOndeCeB> {
                 ),
               ),
               Positioned(
-                top: 8.0, // Ajuste a posição vertical
-                right: 8.0, // Ajuste a posição horizontal
+                top: 8.0,
+                right: 8.0,
                 child: Material(
-                  // Adicione um Material widget
-                  color: Colors.transparent, // Defina a cor transparente
+                  color: Colors.transparent,
                   child: Text(
                     precoIndicator,
                     style: TextStyle(
@@ -88,54 +86,39 @@ class _CardOndeCeBState extends State<CardOndeCeB> {
                 ),
               ),
               Positioned(
-                bottom: 8.0, // Ajuste a posição vertical
-                left: 8.0, // Ajuste a posição horizontal
+                bottom: 8.0,
+                left: 8.0,
                 child: Material(
-                  // Adicione um Material widget
-                  color: Colors.transparent, // Defina a cor transparente
-                  child: IconButton(
-                    icon: Icon(
-                      isFavorito ? Icons.favorite : Icons.favorite_border,
-                      color: isFavorito ? Colors.red : Colors.white,
-                    ),
-                    onPressed: () {
-                      // Alterne o status de favorito quando o ícone de favorito for pressionado
-                      setState(() {
-                        isFavorito = !isFavorito;
-                      });
-
-                      // Adicione ou remova a atração da lista de favoritos
-                      if (isFavorito) {
-                        FavoritosManager.adicionarFavorito(widget.ceb.id);
-                      } else {
-                        FavoritosManager.removerFavorito(widget.ceb.id);
-                      }
-                    },
-                  ),
-                ),
-              ),
-              Container(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                      colors: [
-                        Colors.blue.withOpacity(0.1), // Azul suave
-                        Colors.blue.withOpacity(0.0), // Transparente
-                      ],
-                    ),
-                  ),
-                  padding: const EdgeInsets.only(bottom: 8.0),
-                  child: Text(
-                    widget.ceb.nome,
-                    style: const TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
+                  color: Colors.transparent,
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: Icon(
+                          isFavorito ? Icons.favorite : Icons.favorite_border,
+                          color: isFavorito ? Colors.red : Colors.white,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            isFavorito = !isFavorito;
+                          });
+                          if (isFavorito) {
+                            FavoritosManager.adicionarFavorito(widget.ceb.id);
+                          } else {
+                            FavoritosManager.removerFavorito(widget.ceb.id);
+                          }
+                        },
+                      ),
+                      Text(
+                        widget.ceb.nome.length > 11
+                            ? '${widget.ceb.nome.substring(0, 11)}...'
+                            : widget.ceb.nome,
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

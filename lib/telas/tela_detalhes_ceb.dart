@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:visite_cm/modelos/ondeceb.dart'; // Importe o modelo OndeCeB
+import 'package:carousel_slider/carousel_slider.dart'; // Importe o pacote carousel_slider
+import 'package:visite_cm/modelos/ondeceb.dart';
 
 class DetalhesCeBScreen extends StatelessWidget {
   final OndeCeB ceb;
@@ -11,23 +12,23 @@ class DetalhesCeBScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(ceb.nome),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context); // Voltar para a tela anterior
-          },
-        ),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Hero(
-              tag: ceb.fotos[0], // Use a URL da primeira imagem como tag Hero
-              child: Image.network(
-                ceb.fotos[0], // Exibe a primeira foto na tela de detalhes
-                fit: BoxFit.cover,
-                height: 200.0,
+            CarouselSlider(
+              items: ceb.fotos.map((foto) {
+                return Image.network(
+                  foto,
+                  fit: BoxFit.cover,
+                  height: 200.0,
+                );
+              }).toList(),
+              options: CarouselOptions(
+                aspectRatio: 16 / 9,
+                enlargeCenterPage: true,
+                enableInfiniteScroll: false,
               ),
             ),
             Padding(
@@ -52,13 +53,12 @@ class DetalhesCeBScreen extends StatelessWidget {
                         paragrafo,
                         style: const TextStyle(fontSize: 16.0),
                       ),
-                      const SizedBox(height: 8.0), // Espaço entre os parágrafos
+                      const SizedBox(height: 8.0),
                     ],
                   );
                 }).toList(),
               ),
             ),
-            // Aqui você pode adicionar mais informações dos locais OndeCeB, se necessário
           ],
         ),
       ),

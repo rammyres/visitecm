@@ -30,3 +30,9 @@ Para executar o aplicativo, siga estas etapas:
 
 3. No diretório do projeto, execute o seguinte comando para obter as dependências necessárias:
 
+flutter pub get
+
+
+4. Conecte um dispositivo físico ou inicie um emulador e execute o aplicativo com o seguinte comando:
+
+flutter run

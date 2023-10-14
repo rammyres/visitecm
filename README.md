@@ -1,16 +1,32 @@
-# visite_cm
+# Guia Turístico de Campo Maior
 
-A new Flutter project.
+Este é um aplicativo móvel que serve como um guia turístico para a cidade de Campo Maior. Ele permite que os visitantes explorem as atrações turísticas e locais para comer e beber na cidade.
 
-## Getting Started
+## Recursos Principais
 
-This project is a starting point for a Flutter application.
+- **Verificação de Conectividade**: O aplicativo verifica automaticamente o estado da conectividade com a internet. Se não houver conexão, ele informa o usuário.
 
-A few resources to get you started if this is your first Flutter project:
+- **Navegação por Abas**: O aplicativo utiliza um sistema de abas para organizar as informações em duas categorias principais:
+  1. **Atrações**: Explore as atrações turísticas de Campo Maior.
+  2. **Onde Comer e Beber**: Descubra os melhores lugares para refeições na cidade.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Filtragem de Conteúdo**: Em ambas as abas, o usuário pode pesquisar atrações ou locais para comer e beber. Os resultados são filtrados à medida que o usuário digita na barra de pesquisa.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Detalhes de Atrações e Locais**: Cada item da lista é interativo e permite que o usuário acesse informações detalhadas sobre a atração ou o local para comer/beber.
+
+- **Botão de Favoritos**: O aplicativo permite que o usuário acesse uma lista de favoritos. O usuário pode marcar itens como favoritos e acessá-los facilmente.
+
+- **Tela de Sobre**: Há uma tela de informações ("Sobre") que fornece detalhes gerais sobre o aplicativo ou informações turísticas sobre Campo Maior.
+
+- **Layout Responsivo**: O layout do aplicativo é adaptativo, exibindo um número diferente de colunas com base na largura da tela, garantindo uma experiência de usuário consistente em dispositivos variados.
+
+## Configuração
+
+Para executar o aplicativo, siga estas etapas:
+
+1. Certifique-se de ter o ambiente de desenvolvimento Flutter configurado em sua máquina. Se ainda não o fez, siga [as instruções do site oficial do Flutter](https://flutter.dev/docs/get-started/install).
+
+2. Clone este repositório em sua máquina local.
+
+3. No diretório do projeto, execute o seguinte comando para obter as dependências necessárias:
+

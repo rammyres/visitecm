@@ -112,7 +112,7 @@ class _CardAtracaoState extends State<CardAtracao> {
                       Expanded(
                         flex: 2, // Ajuste o valor do flex conforme necessário
                         child: Text(
-                          '${widget.atracao.nome.length > 11 ? '${widget.atracao.nome.substring(0, 10)}...' : widget.atracao.nome}',
+                          widget.atracao.nome,
                           style: const TextStyle(
                             fontSize: 16.0,
                             color: Colors.white,

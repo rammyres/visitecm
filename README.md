@@ -16,7 +16,7 @@ Este é um aplicativo móvel que serve como um guia turístico para a cidade de 
 
 - **Botão de Favoritos**: O aplicativo permite que o usuário acesse uma lista de favoritos. O usuário pode marcar itens como favoritos e acessá-los facilmente.
 
-- **Tela de Sobre**: Há uma tela de informações ("Sobre") que fornece detalhes gerais sobre o aplicativo ou informações turísticas sobre Campo Maior.
+- **Tela de Sobre**: Há uma tela de informações ("Sobre") que fornece detalhes gerais sobre o aplicativo.
 
 - **Layout Responsivo**: O layout do aplicativo é adaptativo, exibindo um número diferente de colunas com base na largura da tela, garantindo uma experiência de usuário consistente em dispositivos variados.
 
@@ -31,7 +31,6 @@ Para executar o aplicativo, siga estas etapas:
 3. No diretório do projeto, execute o seguinte comando para obter as dependências necessárias:
 
 flutter pub get
-
 
 4. Conecte um dispositivo físico ou inicie um emulador e execute o aplicativo com o seguinte comando:
 

@@ -1,3 +1,9 @@
+// Definite a classe atração, que é a base do App.
+// Cada atração possui uma id, que será usada para gestão dos favoritos,
+// um nome, uma descrição, que é uma lista de strings que comporão os paragrafos
+// da atração e uma lista de fotos, que será usada para mostrar a atração numa
+// tela correspondente.
+
 class Atracao {
   final String id;
   final String nome;

@@ -16,35 +16,40 @@ class CardOndeCeB extends StatefulWidget {
 }
 
 class _CardOndeCeBState extends State<CardOndeCeB> {
-  bool isFavorito = false;
+  bool favorito = false;
 
   @override
   void initState() {
     super.initState();
-    FavoritosManager.isFavorito(widget.ceb.id).then((favorito) {
+    _verificarFavorito();
+  }
+
+  void _verificarFavorito() async {
+    final favorito = await FavoritosManager.isFavorito(widget.ceb.id);
+    if (mounted) {
       setState(() {
-        isFavorito = favorito;
+        this.favorito = favorito;
       });
-    });
+    }
+  }
+
+  void _toggleFavorito() async {
+    if (favorito) {
+      await FavoritosManager.removerFavorito(widget.ceb.id);
+    } else {
+      await FavoritosManager.adicionarFavorito(widget.ceb.id);
+    }
+    if (mounted) {
+      setState(() {
+        favorito = !favorito;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final String primeiraFoto =
         widget.ceb.fotos.isNotEmpty ? widget.ceb.fotos[0] : '';
-
-    String precoIndicator = '';
-    switch (widget.ceb.preco) {
-      case Preco.caro:
-        precoIndicator = '\$\$\$';
-        break;
-      case Preco.ok:
-        precoIndicator = '\$\$';
-        break;
-      case Preco.barato:
-        precoIndicator = '\$';
-        break;
-    }
 
     return Card(
       elevation: 4.0,
@@ -73,49 +78,61 @@ class _CardOndeCeBState extends State<CardOndeCeB> {
               Positioned(
                 top: 8.0,
                 right: 8.0,
-                child: Material(
-                  color: Colors.transparent,
+                child: Container(
+                  padding: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    color: precoColor(widget.ceb.preco),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
                   child: Text(
-                    precoIndicator,
+                    precoIndicator(widget.ceb.preco),
                     style: TextStyle(
-                      fontSize: 20.0,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      color: precoColor(widget.ceb.preco),
                     ),
                   ),
                 ),
               ),
               Positioned(
-                bottom: 8.0,
-                left: 8.0,
-                child: Material(
-                  color: Colors.transparent,
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topCenter,
+                      colors: [
+                        Colors.blue.withOpacity(0.4),
+                        Colors.blue.withOpacity(0.0),
+                      ],
+                    ),
+                  ),
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      IconButton(
-                        icon: Icon(
-                          isFavorito ? Icons.favorite : Icons.favorite_border,
-                          color: isFavorito ? Colors.red : Colors.white,
+                      Material(
+                        color: Colors.transparent,
+                        child: IconButton(
+                          icon: Icon(
+                            favorito ? Icons.favorite : Icons.favorite_border,
+                            color: favorito ? Colors.red : Colors.white,
+                          ),
+                          onPressed: () {
+                            _toggleFavorito();
+                          },
                         ),
-                        onPressed: () {
-                          setState(() {
-                            isFavorito = !isFavorito;
-                          });
-                          if (isFavorito) {
-                            FavoritosManager.adicionarFavorito(widget.ceb.id);
-                          } else {
-                            FavoritosManager.removerFavorito(widget.ceb.id);
-                          }
-                        },
                       ),
-                      Text(
-                        widget.ceb.nome.length > 11
-                            ? '${widget.ceb.nome.substring(0, 11)}...'
-                            : widget.ceb.nome,
-                        style: const TextStyle(
-                          fontSize: 16.0,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                      Expanded(
+                        child: Text(
+                          widget.ceb.nome,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 16.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ],
@@ -139,6 +156,19 @@ class _CardOndeCeBState extends State<CardOndeCeB> {
         return Colors.green;
       default:
         return Colors.black;
+    }
+  }
+
+  String precoIndicator(Preco preco) {
+    switch (preco) {
+      case Preco.caro:
+        return '\$\$\$';
+      case Preco.ok:
+        return '\$\$';
+      case Preco.barato:
+        return '\$';
+      default:
+        return '';
     }
   }
 }

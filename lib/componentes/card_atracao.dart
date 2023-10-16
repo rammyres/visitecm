@@ -87,32 +87,33 @@ class _CardAtracaoState extends State<CardAtracao> {
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter,
                       colors: [
-                        Colors.blue.withOpacity(0.1), // Azul suave
+                        Colors.blue.withOpacity(0.4), // Azul suave
                         Colors.blue.withOpacity(0.0), // Transparente
                       ],
                     ),
                   ),
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment
+                        .spaceBetween, // Centraliza horizontalmente
                     children: [
-                      Expanded(
-                        child: Material(
-                          color: Colors.transparent,
-                          child: IconButton(
-                            icon: Icon(
-                              favorito ? Icons.favorite : Icons.favorite_border,
-                              color: favorito ? Colors.red : Colors.white,
-                            ),
-                            onPressed: () {
-                              _toggleFavorito();
-                            },
+                      Material(
+                        color: Colors.transparent,
+                        child: IconButton(
+                          icon: Icon(
+                            favorito ? Icons.favorite : Icons.favorite_border,
+                            color: favorito ? Colors.red : Colors.white,
                           ),
+                          onPressed: () {
+                            _toggleFavorito();
+                          },
                         ),
                       ),
                       Expanded(
-                        flex: 2, // Ajuste o valor do flex conforme necessário
                         child: Text(
                           widget.atracao.nome,
+                          textAlign:
+                              TextAlign.center, // Alinha o texto ao centro
                           style: const TextStyle(
                             fontSize: 16.0,
                             color: Colors.white,

@@ -1,34 +1,31 @@
+import 'package:visite_cm/modelos/atracao.dart';
+
+// A classe OndeCeB (Onde comer e beber) é uma atração especial, designando
+// bares e restaurantes, com uma estimativa de preço (caro, ok e barato)
+
+class OndeCeB extends Atracao {
+  final Preco preco;
+
+  OndeCeB({
+    required String id,
+    required String nome,
+    required List<String> fotos,
+    required List<String> descricao,
+    required String localizacao,
+    required this.preco,
+  }) : super(
+          // Inicialização da superclasse
+          id: id,
+          nome: nome,
+          fotos: fotos,
+          descricao: descricao,
+          localizacao: localizacao,
+        );
+}
+
+// Indicativo de preços
 enum Preco {
   caro,
   ok,
   barato,
-}
-
-class OndeCeB {
-  final String id;
-  final String nome;
-  final List<String> fotos;
-  final List<String> descricao;
-  final String localizacao;
-  final Preco preco;
-  double latitude = 0;
-  double longitude = 0;
-
-  OndeCeB({
-    required this.id,
-    required this.nome,
-    required this.fotos,
-    required this.descricao,
-    required this.localizacao,
-    required this.preco,
-  }) {
-    // Extrai as coordenadas de latitude e longitude da URL do Google Maps
-    final regex = RegExp(r'@([-+]?\d+\.\d+),([-+]?\d+\.\d+)');
-    final match = regex.firstMatch(localizacao);
-
-    if (match != null && match.groupCount == 2) {
-      latitude = double.tryParse(match.group(1)!) ?? 0;
-      longitude = double.tryParse(match.group(2)!) ?? 0;
-    }
-  }
 }

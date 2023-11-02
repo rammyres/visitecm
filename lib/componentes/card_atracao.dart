@@ -70,8 +70,8 @@ class _CardAtracaoState extends State<CardAtracao> {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: Image.network(
-                  primeiraFoto,
+                child: Image.asset(
+                  primeiraFoto, // Use Image.asset em vez de Image.network
                   fit: BoxFit.cover,
                   height: 200,
                   width: double.infinity,
@@ -94,8 +94,7 @@ class _CardAtracaoState extends State<CardAtracao> {
                   ),
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment
-                        .spaceBetween, // Centraliza horizontalmente
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Material(
                         color: Colors.transparent,
@@ -112,8 +111,7 @@ class _CardAtracaoState extends State<CardAtracao> {
                       Expanded(
                         child: Text(
                           widget.atracao.nome,
-                          textAlign:
-                              TextAlign.center, // Alinha o texto ao centro
+                          textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontSize: 16.0,
                             color: Colors.white,

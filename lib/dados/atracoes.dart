@@ -5,9 +5,9 @@ final atracoes = [
     id: "tur1",
     nome: "Açude Grade",
     fotos: [
-      "https://www.campomaior.pi.gov.br/kcfinder/images/394906_525751784113036_1879819764_n.jpg",
-      "https://i.ibb.co/T1bgMpK/image.png",
-      "https://www.diariodecampomaior.com.br/images/noticias/114/WhatsApp-Image-2022-03-29-at-13.32.24.jpeg",
+      "assets/imagens/tur1_1.png",
+      "assets/imagens/tur1_2.png",
+      "assets/imagens/tur1_3.png",
     ],
     descricao: [
       "O Açude Grande de Campo Maior foi construido entre 1858 e 1859, em obra realida pelo Cel. Jacob Almendra.",
@@ -21,7 +21,7 @@ final atracoes = [
     id: "tur2",
     nome: "Pé da Serra",
     fotos: [
-      "https://causosassustadoresdopiaui.files.wordpress.com/2017/06/17626403_1849107248683605_8142188402617499941_n.jpg",
+      "assets/imagens/tur2_1.png",
     ],
     descricao: [
       "O Pé da Serra de Campo Maior é um conjunto de formações rochosas que abriga morros, piscinas naturais, rios e cachoeiras. Oficialmente é conhecido como Serra de Santo Antônio.",
@@ -34,7 +34,7 @@ final atracoes = [
     id: "tur3",
     nome: "Monumento do Jenipapo",
     fotos: [
-      "https://www.conhecaopiaui.com/images/posts/20190316160042_6hwhf5Sd_995184149435_ujUGsZB9.jpeg",
+      "assets/imagens/tur3_1.png",
     ],
     descricao: [
       "O monumento que marca o local do combate contra as tropas portuguesas, única sangrenta no processo de independência do Brasil.",
@@ -47,7 +47,7 @@ final atracoes = [
     id: "tur4",
     nome: "Cachoeira da Bica",
     fotos: [
-      "https://www.conhecaopiaui.com/photos/2/cachoeira_bica_campo_maior_3.jpg",
+      "assets/imagens/tur4_1.png",
     ],
     descricao: [
       "A Cachoeira da Bica é uma cachoeira localizada no povoado Bela Vista. Sua beleza atrai turistas, especialmente durante e estação chuvosa."
@@ -59,7 +59,7 @@ final atracoes = [
     id: "tur5",
     nome: "Barragens do Emparedado e Corredores",
     fotos: [
-      "https://piauihoje.com/uploads/editor/1645297661536_51af67432abb48aa152270221948b0ce816508f8.jpg",
+      "assets/imagens/tur5_1.png",
     ],
     descricao: [
       "As barragens Emparedado e Corredores se localizam no Povoado Cacimbas em Campo Maior.",
@@ -67,5 +67,20 @@ final atracoes = [
     ],
     localizacao:
         "https://www.google.com/maps/place/BARRAGEM+DOS+CORREDORES/@-5.1071945,-42.0378374,15z",
+  ),
+  Atracao(
+    id: "tur6",
+    nome: "Catedral Santo Antonio ",
+    fotos: [
+      "assets/imagens/tur6_1.png",
+      "assets/imagens/tur6_2.png",
+      "assets/imagens/tur6_3.png",
+    ],
+    descricao: [
+      "A Catedral de Santo Antônio é um templo católico situado na Praça Bona Primo, em Campo Maior, no estado do Piauí. Desde 12 de junho de 1976, é Sé episcopal[1] da Diocese de Campo Maior.",
+      "Foi erguida sob o comando do pároco Mateus Rufino sobre os escombros da antiga igrejinha de Santo Antônio cuja construção teve início em 1944 e foi concluída em 1962, em evento comemorativo do bicentenário de Campo Maior. É um monumento da Diocese do mesmo município.",
+    ],
+    localizacao:
+        "https://www.google.com.br/maps/place/Catedral+de+Santo+Ant%C3%B4nio/@-4.823815,-42.1709668,17z/data=!3m1!4b1!4m6!3m5!1s0x7918c08f52f2249:0xb25d77a30deaf74b!8m2!3d-4.823815!4d-42.1683919!16s%2Fg%2F11b6y0jfj5?entry=ttu",
   )
 ];

@@ -68,7 +68,7 @@ class _CardOndeCeBState extends State<CardOndeCeB> {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: Image.network(
+                child: Image.asset(
                   primeiraFoto,
                   fit: BoxFit.cover,
                   height: 200,

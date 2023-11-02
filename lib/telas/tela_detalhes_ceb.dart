@@ -19,7 +19,7 @@ class DetalhesCeBScreen extends StatelessWidget {
           children: <Widget>[
             CarouselSlider(
               items: ceb.fotos.map((foto) {
-                return Image.network(
+                return Image.asset(
                   foto,
                   fit: BoxFit.cover,
                   height: 200.0,

@@ -8,6 +8,7 @@ import 'package:visite_cm/dados/atracoes.dart'; // Importe a lista de atrações
 import 'package:visite_cm/dados/ondecebs.dart'; // Importe a lista de ondecebs
 
 class TelaFavoritos extends StatefulWidget {
+  const TelaFavoritos(Key? key) : super(key: key);
   @override
   _TelaFavoritosState createState() => _TelaFavoritosState();
 }

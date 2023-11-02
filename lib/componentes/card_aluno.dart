@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AlunoCard extends StatelessWidget {
   final String nome;
 
-  const AlunoCard({required this.nome});
+  const AlunoCard({Key? key, required this.nome}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

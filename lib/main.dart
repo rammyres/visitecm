@@ -14,7 +14,7 @@ class VisiteCM extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const TelaInicial(),
-        '/favoritos': (context) => TelaFavoritos(),
+        '/favoritos': (context) => const TelaFavoritos(Key("favoritos_key")),
         '/sobre': (context) => TelaSobre(),
       },
     );

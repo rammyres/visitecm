@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:visite_cm/modelos/atracao.dart';
+import 'package:visite_cm/componentes/imagem_auto.dart';
 
 class DetalhesAtracaoScreen extends StatelessWidget {
   final Atracao atracao;
@@ -21,10 +22,10 @@ class DetalhesAtracaoScreen extends StatelessWidget {
           children: <Widget>[
             CarouselSlider(
               items: atracao.fotos.map((foto) {
-                return Image.asset(
-                  foto,
-                  fit: BoxFit.cover,
-                  height: 200.0,
+                return ImagemAuto(
+                  imageUrl: foto,
+                  boxFit: BoxFit.cover,
+                  altura: 200.0,
                 );
               }).toList(),
               options: CarouselOptions(

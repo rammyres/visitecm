@@ -8,6 +8,7 @@ final atracoes = [
       "assets/imagens/tur1_1.png",
       "assets/imagens/tur1_2.png",
       "assets/imagens/tur1_3.png",
+      "https://www.gp1.com.br/media/image_bank/2023/6/acude-de-campo-maior-vai-passar-por-revitalizacaonone.jpg.950x0_q95_crop.webp",
     ],
     descricao: [
       "O Açude Grande de Campo Maior foi construido entre 1858 e 1859, em obra realida pelo Cel. Jacob Almendra.",

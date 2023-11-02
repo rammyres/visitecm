@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart'; // Importe o pacote carousel_slider
 import 'package:visite_cm/modelos/ondeceb.dart';
+import 'package:visite_cm/componentes/imagem_auto.dart';
 
 class DetalhesCeBScreen extends StatelessWidget {
   final OndeCeB ceb;
@@ -19,10 +20,10 @@ class DetalhesCeBScreen extends StatelessWidget {
           children: <Widget>[
             CarouselSlider(
               items: ceb.fotos.map((foto) {
-                return Image.asset(
-                  foto,
-                  fit: BoxFit.cover,
-                  height: 200.0,
+                return ImagemAuto(
+                  imageUrl: foto,
+                  boxFit: BoxFit.cover,
+                  altura: 200.0,
                 );
               }).toList(),
               options: CarouselOptions(

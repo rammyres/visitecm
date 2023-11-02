@@ -3,6 +3,9 @@
 Todas as notáveis alterações neste projeto serão documentadas neste arquivo.
 
 O formato é baseado em [Semantic Versioning](http://semver.org/).
+## [Versão 1.0.1] - 2023-11-02
+### Adicionado
+- Criação do widget ImagemAuto, para automatizar a leitura das imagens de atrações e OndeCeBs
 
 ## [Versão 1.0.0] - 2023-11-01
 ### Adicionado

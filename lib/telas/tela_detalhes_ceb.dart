@@ -6,7 +6,7 @@ import 'package:visite_cm/componentes/imagem_auto.dart';
 class DetalhesCeBScreen extends StatelessWidget {
   final OndeCeB ceb;
 
-  DetalhesCeBScreen({required this.ceb});
+  const DetalhesCeBScreen({Key? key, required this.ceb}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

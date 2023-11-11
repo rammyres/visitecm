@@ -3,6 +3,19 @@ import 'package:visite_cm/modelos/atracao.dart';
 final atracoes = [
   Atracao(
     id: "tur1",
+    nome: "Pé da Serra",
+    fotos: [
+      "assets/imagens/tur2_1.png",
+    ],
+    descricao: [
+      "O Pé da Serra de Campo Maior é um conjunto de formações rochosas que abriga morros, piscinas naturais, rios e cachoeiras. Oficialmente é conhecido como Serra de Santo Antônio.",
+      "Em um de seus morros foi instalado um mirante e um crucifixo, acessível por uma escadaria que serve como 'trilha'.",
+    ],
+    localizacao:
+        "https://www.google.com/maps/@-5.083204960330369,-42.08333329999999?entry=ttu",
+  ),
+  Atracao(
+    id: "tur2",
     nome: "Açude Grade",
     fotos: [
       "assets/imagens/tur1_1.png",
@@ -16,45 +29,22 @@ final atracoes = [
       "O Açude também é o local onde o campomaiorense se exercita, caminhando ao redor de sua orla.",
     ],
     localizacao:
-        "https://www.google.com/maps/@-4.833189583616752,-42.168444502722956?entry=ttu",
-  ),
-  Atracao(
-    id: "tur2",
-    nome: "Pé da Serra",
-    fotos: [
-      "assets/imagens/tur2_1.png",
-    ],
-    descricao: [
-      "O Pé da Serra de Campo Maior é um conjunto de formações rochosas que abriga morros, piscinas naturais, rios e cachoeiras. Oficialmente é conhecido como Serra de Santo Antônio.",
-      "Em um de seus morros foi instaldo um mirante e um crucifixo, acessível por uma escadaria que serve como 'trilha'.",
-    ],
-    localizacao:
-        "https://www.google.com/maps/@-5.083204960330369,-42.08333329999999?entry=ttu",
+        "https://www.google.com/maps/@-4.8335985,-42.1699805?entry=ttu",
   ),
   Atracao(
     id: "tur3",
     nome: "Monumento do Jenipapo",
     fotos: [
       "assets/imagens/tur3_1.png",
+      "assets/imagens/tur3_2.png",
+      "assets/imagens/tur3_3.png",
+      "assets/imagens/tur3_4.png",
     ],
     descricao: [
       "O monumento que marca o local do combate contra as tropas portuguesas, única sangrenta no processo de independência do Brasil.",
       "Junto ao monumento existe também o Cemitério do Batalhão e o Museu do Couro.",
     ],
-    localizacao:
-        "https://www.google.com/maps/place/Monumento+aos+Her%C3%B3is+do+Jenipapo/@-4.7823835,-42.1184066,16z",
-  ),
-  Atracao(
-    id: "tur4",
-    nome: "Cachoeira da Bica",
-    fotos: [
-      "assets/imagens/tur4_1.png",
-    ],
-    descricao: [
-      "A Cachoeira da Bica é uma cachoeira localizada no povoado Bela Vista. Sua beleza atrai turistas, especialmente durante e estação chuvosa."
-    ],
-    localizacao:
-        "https://www.google.com/maps/place/EcoParque+%22Cachoeira+da+Bica%22/@-4.994954,-41.929238,15z",
+    localizacao: "https://www.google.com/maps/@-4.7823835,-42.1184066,16z",
   ),
   Atracao(
     id: "tur5",
@@ -82,6 +72,6 @@ final atracoes = [
       "Foi erguida sob o comando do pároco Mateus Rufino sobre os escombros da antiga igrejinha de Santo Antônio cuja construção teve início em 1944 e foi concluída em 1962, em evento comemorativo do bicentenário de Campo Maior. É um monumento da Diocese do mesmo município.",
     ],
     localizacao:
-        "https://www.google.com.br/maps/place/Catedral+de+Santo+Ant%C3%B4nio/@-4.823815,-42.1709668,17z/data=!3m1!4b1!4m6!3m5!1s0x7918c08f52f2249:0xb25d77a30deaf74b!8m2!3d-4.823815!4d-42.1683919!16s%2Fg%2F11b6y0jfj5?entry=ttu",
+        "https://www.google.com/maps/place/Catedral+de+Santo+Ant%C3%B4nio/@-4.8238123,-42.1696794,18z/",
   )
 ];

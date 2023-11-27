@@ -3,19 +3,6 @@ import 'package:visite_cm/modelos/atracao.dart';
 final atracoes = [
   Atracao(
     id: "tur1",
-    nome: "Pé da Serra",
-    fotos: [
-      "assets/imagens/tur2_1.png",
-    ],
-    descricao: [
-      "O Pé da Serra de Campo Maior é um conjunto de formações rochosas que abriga morros, piscinas naturais, rios e cachoeiras. Oficialmente é conhecido como Serra de Santo Antônio.",
-      "Em um de seus morros foi instalado um mirante e um crucifixo, acessível por uma escadaria que serve como 'trilha'.",
-    ],
-    localizacao:
-        "https://www.google.com/maps/@-5.083204960330369,-42.08333329999999?entry=ttu",
-  ),
-  Atracao(
-    id: "tur2",
     nome: "Açude Grade",
     fotos: [
       "assets/imagens/tur1_1.png",
@@ -29,7 +16,20 @@ final atracoes = [
       "O Açude também é o local onde o campomaiorense se exercita, caminhando ao redor de sua orla.",
     ],
     localizacao:
-        "https://www.google.com/maps/@-4.8335985,-42.1699805?entry=ttu",
+        "https://www.google.com/maps/@-4.8356205,-42.1676946,17.04z?entry=ttu",
+  ),
+  Atracao(
+    id: "tur2",
+    nome: "Pé da Serra",
+    fotos: [
+      "assets/imagens/tur2_1.png",
+    ],
+    descricao: [
+      "O Pé da Serra de Campo Maior é um conjunto de formações rochosas que abriga morros, piscinas naturais, rios e cachoeiras. Oficialmente é conhecido como Serra de Santo Antônio.",
+      "Em um de seus morros foi instalado um mirante e um crucifixo, acessível por uma escadaria que serve como 'trilha'.",
+    ],
+    localizacao:
+        "https://www.google.com/maps/@-4.9195199,-42.1863552,15z?entry=ttu",
   ),
   Atracao(
     id: "tur3",
@@ -72,6 +72,6 @@ final atracoes = [
       "Foi erguida sob o comando do pároco Mateus Rufino sobre os escombros da antiga igrejinha de Santo Antônio cuja construção teve início em 1944 e foi concluída em 1962, em evento comemorativo do bicentenário de Campo Maior. É um monumento da Diocese do mesmo município.",
     ],
     localizacao:
-        "https://www.google.com/maps/place/Catedral+de+Santo+Ant%C3%B4nio/@-4.8238123,-42.1696794,18z/",
+        "https://www.google.com/maps/place/Catedral+de+Santo+Ant%C3%B4nio/@-4.824982,-42.1686443,18.4z/data=!4m6!3m5!1s0x7918c08f52f2249:0xb25d77a30deaf74b!8m2!3d-4.823815!4d-42.1683919!16s%2Fg%2F11b6y0jfj5?entry=ttu",
   )
 ];

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart'; // Importe o pacote carousel_slider
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:visite_cm/modelos/ondeceb.dart';
 import 'package:visite_cm/componentes/imagem_auto.dart';
 
@@ -58,6 +59,23 @@ class DetalhesCeBScreen extends StatelessWidget {
                     ],
                   );
                 }).toList(),
+              ),
+            ),
+            SizedBox(
+              height: 300.00,
+              // width: double.infinity,
+              child: GoogleMap(
+                initialCameraPosition: CameraPosition(
+                  target: LatLng(ceb.latitude, ceb.longitude),
+                  zoom: 15.0,
+                ),
+                markers: {
+                  Marker(
+                    markerId: MarkerId(ceb.nome),
+                    position: LatLng(ceb.latitude, ceb.longitude),
+                    infoWindow: InfoWindow(title: ceb.nome),
+                  ),
+                },
               ),
             ),
           ],

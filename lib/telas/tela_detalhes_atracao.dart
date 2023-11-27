@@ -25,7 +25,7 @@ class DetalhesAtracaoScreen extends StatelessWidget {
                 return ImagemAuto(
                   imageUrl: foto,
                   boxFit: BoxFit.cover,
-                  altura: 200.0,
+                  altura: 180.0,
                 );
               }).toList(),
               options: CarouselOptions(
@@ -36,36 +36,8 @@ class DetalhesAtracaoScreen extends StatelessWidget {
                 initialPage: 0,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                atracao.nome,
-                style: const TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: atracao.descricao.map((paragrafo) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        paragrafo,
-                        style: const TextStyle(fontSize: 16.0),
-                      ),
-                      const SizedBox(height: 8.0), // Espaço entre os parágrafos
-                    ],
-                  );
-                }).toList(),
-              ),
-            ),
             SizedBox(
-              height: 300.0,
+              height: 200.0,
               child: GoogleMap(
                 initialCameraPosition: CameraPosition(
                   target: LatLng(atracao.latitude, atracao.longitude),
@@ -78,6 +50,40 @@ class DetalhesAtracaoScreen extends StatelessWidget {
                     infoWindow: InfoWindow(title: atracao.nome),
                   ),
                 },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    atracao.nome,
+                    style: const TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 8.0), // Espaço entre o nome e o texto
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: atracao.descricao.map((paragrafo) {
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              paragrafo,
+                              style: const TextStyle(fontSize: 16.0),
+                            ),
+                            const SizedBox(
+                                height: 8.0), // Espaço entre os parágrafos
+                          ],
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

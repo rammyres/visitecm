@@ -1,11 +1,11 @@
 {
-    "name": "visite_cm",
+    "name": "Guia Turistico de Campo Maior",
     "short_name": "visite_cm",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Guia Turistico de Campo Maior.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

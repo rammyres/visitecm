@@ -43,7 +43,7 @@ final atracoes = [
       "assets/imagens/tur3_4.png",
     ],
     descricao: [
-      " O Monumento do Jenipapo é uma homenagem histórica à Batalha do Jenipapo, um episódio relevante na luta pela independência do Brasil. Este monumento destaca-se como um símbolo memorial, convidando os visitantes a refletirem sobre o passado e a importância desse evento na história nacional.",
+      "O Monumento do Jenipapo é uma homenagem histórica à Batalha do Jenipapo, um episódio relevante na luta pela independência do Brasil. Este monumento destaca-se como um símbolo memorial, convidando os visitantes a refletirem sobre o passado e a importância desse evento na história nacional.",
       "Erguido em 1975, inaugurado pelo governador Alberto Silva, está aproximadamente à 07 km do centro da cidade, situado à margem esquerda da BR-343 no sentido Campo Maior/Parnaíba, próximo ao rio Jenipapo. È considerado o patrimônio histórico mais antigo da cidade, onde testemunha a bravura dos que, com seu sangue, preservaram a unidade nacional e deram eloqüente exemplo de brasilidade às futuras gerações",
       "Junto ao monumento existe também o Cemitério do Batalhão e o Museu do Couro.",
     ],

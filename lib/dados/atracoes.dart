@@ -54,10 +54,12 @@ final atracoes = [
     nome: "Barragens do Emparedado e Corredores",
     fotos: [
       "assets/imagens/tur5_1.png",
+      "assets/imagens/tur5_2.png",
+      "assets/imagens/tur5_3.png",
     ],
     descricao: [
       "A Barragem dos Corredores não só desempenha um papel vital na gestão hídrica da região, mas também é um ponto de interesse devido à sua imponência. Os visitantes podem apreciar a grandiosidade da estrutura e desfrutar das paisagens ao seu redor.",
-      "Possui uma extensão de 22 km de espelho d’água cristalina. Esta localizada a aproximadamente 46 quilômetros do centro da cidade. Para chegar lá você deve trafegar na PI-115 no sentido Campo Maior/Castelo do Piauí,É excelente para a prática de esportes náuticos e pescarias. Lá se pode encontrar o tambaqui, que é um peixe típico de criatórios da região.",
+      "Possui uma extensão de 22 km de espelho d'água cristalina. Esta localizada a aproximadamente 46 quilômetros do centro da cidade. Para chegar lá você deve trafegar na PI-115 no sentido Campo Maior/Castelo do Piauí,É excelente para a prática de esportes náuticos e pescarias. Lá se pode encontrar o tambaqui, que é um peixe típico de criatórios da região.",
     ],
     localizacao:
         "https://www.google.com/maps/place/BARRAGEM+DOS+CORREDORES/@-5.1071945,-42.0378374,15z",

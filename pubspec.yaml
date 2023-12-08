@@ -63,14 +63,15 @@ flutter:
   uses-material-design: true
 
   assets:
+  # Açude grande
   - assets/imagens/tur1_1.png
   - assets/imagens/tur1_2.png
   - assets/imagens/tur1_3.png
+  # Pé da serra
   - assets/imagens/tur2_1.png
   - assets/imagens/tur3_1.png
   - assets/imagens/tur4_1.png
   - assets/imagens/tur5_1.png
-
   - assets/imagens/tur6_1.png
   - assets/imagens/tur6_2.png
   - assets/imagens/tur6_3.png

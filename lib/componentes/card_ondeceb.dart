@@ -86,7 +86,7 @@ class _CardOndeCeBState extends State<CardOndeCeB> {
                   ),
                   child: Text(
                     precoIndicator(widget.ceb.preco),
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),

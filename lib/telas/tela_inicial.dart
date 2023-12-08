@@ -15,7 +15,7 @@ class TelaInicial extends StatefulWidget {
 }
 
 class _TelaInicialState extends State<TelaInicial> {
-  String filtro = "";
+  String filtro = ""; // Variável filtro onde é armazenado o nome a ser buscado
   ConnectivityResult _connectivityResult = ConnectivityResult.none;
 
   int calculateCrossAxisCount(double width) {
@@ -137,7 +137,7 @@ class _TelaInicialState extends State<TelaInicial> {
       );
     } else {
       final atracoesFiltradas = atracoes
-          .where((atracao) =>
+          .where((atracao) => // Reduce para procurar os itens a partir do nome
               atracao.nome.toLowerCase().contains(filtro.toLowerCase()))
           .toList();
 
@@ -147,8 +147,8 @@ class _TelaInicialState extends State<TelaInicial> {
             Stack(
               alignment: Alignment.center,
               children: [
-                Image.network(
-                  'https://i.ibb.co/T1bgMpK/image.png',
+                Image.asset(
+                  'assets/imagens/tur1_2.png',
                   fit: BoxFit.cover,
                 ),
                 const Text(

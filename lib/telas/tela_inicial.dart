@@ -78,7 +78,7 @@ class _TelaInicialState extends State<TelaInicial> {
             IconButton(
               icon: const Icon(
                 Icons.info,
-                color: Colors.white,
+                color: Colors.black,
                 size: 20,
               ),
               onPressed: () {
@@ -184,12 +184,14 @@ class _TelaInicialState extends State<TelaInicial> {
             Column(
               children: atracoesFiltradas
                   .map((atracao) => GestureDetector(
+                        //Mapeia as atrações
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  DetalhesAtracaoScreen(atracao: atracao),
+                              builder:
+                                  (context) => // Context é a tela do celular
+                                      DetalhesAtracaoScreen(atracao: atracao),
                             ),
                           );
                         },

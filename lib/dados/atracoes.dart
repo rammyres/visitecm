@@ -78,5 +78,36 @@ final atracoes = [
     ],
     localizacao:
         "https://www.google.com/maps/place/Catedral+de+Santo+Ant%C3%B4nio/@-4.824982,-42.1686443,18.4z/data=!4m6!3m5!1s0x7918c08f52f2249:0xb25d77a30deaf74b!8m2!3d-4.823815!4d-42.1683919!16s%2Fg%2F11b6y0jfj5?entry=ttu",
+  ),
+  Atracao(
+    id: "tur7",
+    nome: "Fazenda Abelheiras ",
+    fotos: [
+      "assets/imagens/tur7_1.png",
+      "assets/imagens/tur7_2.png",
+      "assets/imagens/tur7_3.png",
+    ],
+    descricao: [
+      "A fazenda é uma das mais antigas da região de Campo Maior, com mais de 300 anos de existência. A construção da sede da Fazenda Abelheiras é atribuída ao fidalgo português D. Francisco da Cunha Castelo Branco, que teria fundado diversas fazendas de gado na freguesia de Santo António do Surubim, atual município de Campo Maior 1. A sede foi construída em arquitetura colonial sertaneja de raízes portuguesas no Piauí, que dentre suas características estão o madeiramento do telhado em carnaúba, estruturado sem o auxílio da tesoura e coberto com telhas artesanais e os ladrilhos em barro cozido que formam o assoalho",
+      "A Fazenda Abelheiras é um patrimônio histórico do Piauí e um exemplo da arquitetura colonial sertaneja de raízes portuguesas no Piauí. A fazenda é um lugar de grande importância para a história do estado do Piauí e um ponto turístico imperdível para quem visita a cidade de Campo Maior",
+    ],
+    localizacao:
+        "https://www.google.com/maps/place/4%C2%B055'55.2%22S+42%C2%B003'00.0%22W/@-4.9320105,-42.0525799,1082m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d-4.9320105!4d-42.050005?entry=ttu",
+  ),
+  Atracao(
+    id: "tur8",
+    nome: "Carne de Sol",
+    fotos: [
+      "assets/imagens/tur8_1.png",
+      "assets/imagens/tur8_2.png",
+      "assets/imagens/tur8_3.png",
+    ],
+    descricao: [
+      "A carne de sol é um prato típico do Nordeste brasileiro, e a cidade de Campo Maior, no Piauí, é famosa por sua tradição no preparo da carne. A carne de sol é um alimento que começou a ser consumido no Brasil ainda no período colonial. Com o tempo, o ingrediente se tornou um patrimônio cultural do município de Campo Maior.",
+      "A cidade tem tradição no preparo da carne há mais de 300 anos, e a Fazenda Abelheiras, uma das primeiras fazendas do Piauí a trabalhar com a criação de gado, existe há 312 anos.Peças inteiras de carne de sol e úberes (mamas das vacas) ficam expostas ao público, consumidor tradicional ou turista. Os clientes, que chegam de todas as partes, preferem adquiri-las com três dias de cura.",
+      "A carne de sol de Campo Maior é um patrimônio cultural do município e uma atração turística imperdível para quem visita a cidade. A alimentação do boi, geralmente alimentado com capim mimoso e a frutinha da carnaúba, é o que traz o sabor diferenciado da carne."
+    ],
+    localizacao:
+        "https://www.google.com/maps/place/Campo+Maior,+PI,+64280-000/@-4.830191,-42.193815,14z/data=!3m1!4b1!4m6!3m5!1s0x7918c12151c6043:0x77c79894c552aebd!8m2!3d-4.8238312!4d-42.1667673!16s%2Fg%2F11bxfw3fgx?entry=ttu",
   )
 ];

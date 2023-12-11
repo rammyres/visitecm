@@ -245,6 +245,42 @@ class _TelaInicialState extends State<TelaInicial> {
       return SingleChildScrollView(
         child: Column(
           children: [
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Image.asset(
+                  'assets/imagens/tur1_2.png',
+                  fit: BoxFit.cover,
+                ),
+                const Text(
+                  "Bem vindos a Campo Maior!",
+                  style: TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                Positioned(
+                  bottom: 16,
+                  left: 10,
+                  right: 10,
+                  child: TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        filtro = value;
+                      });
+                    },
+                    decoration: const InputDecoration(
+                      labelText: 'Filtrar por nome',
+                      hintText: 'Digite o nome do local',
+                      prefixIcon: Icon(Icons.search),
+                      filled: true,
+                      fillColor: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(height: 16),
             Column(
               children: ondecebsFiltrados

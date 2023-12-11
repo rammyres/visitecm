@@ -74,8 +74,8 @@ final ondecebs = [
     nome: "Bar do Vicente - Corredores",
     fotos: [
       "assets/imagens/ceb6_1.png",
-      "assets/imagens/ceb5_2.png",
-      "assets/imagens/ceb5_3.png",
+      "assets/imagens/ceb6_2.png",
+      "assets/imagens/ceb6_3.png",
     ],
     descricao: [
       "O Bar é um dos poucos remanscentes do completo de restaurantes e bares da Barragem Corredores.",

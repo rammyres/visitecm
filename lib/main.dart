@@ -11,7 +11,7 @@ class VisiteCM extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
+      initialRoute: '/', //Rota inicial
       routes: {
         '/': (context) => const TelaInicial(),
         '/favoritos': (context) => const TelaFavoritos(Key("favoritos_key")),

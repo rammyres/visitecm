@@ -68,5 +68,21 @@ final ondecebs = [
     localizacao:
         "https://www.google.com/maps/place/Eco+S%C3%ADtio+Carna%C3%BAba/@-4.9463627,-42.2019737,17.17z/data=!4m6!3m5!1s0x79193a6d1de398b:0x4785f5ec9fe29513!8m2!3d-4.9440625!4d-42.2010625!16s%2Fg%2F11r_4tz1yg?entry=ttu",
     preco: Preco.caro,
+  ),
+  OndeCeB(
+    id: "ceb6",
+    nome: "Bar do Vicente - Corredores",
+    fotos: [
+      "assets/imagens/ceb6_1.png",
+      "assets/imagens/ceb6_2.png",
+      "assets/imagens/ceb6_3.png",
+    ],
+    descricao: [
+      "O Bar é um dos poucos remanscentes do completo de restaurantes e bares da Barragem Corredores.",
+      "Funciona exclusivamente nos fins de semana e feriados",
+    ],
+    localizacao:
+        "https://www.google.com.br/maps/place/Bar+do+Vicente/@-5.1041816,-42.0393271,15z/",
+    preco: Preco.ok,
   )
 ];

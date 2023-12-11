@@ -15,7 +15,7 @@ class TelaInicial extends StatefulWidget {
 }
 
 class _TelaInicialState extends State<TelaInicial> {
-  String filtro = "";
+  String filtro = ""; // Variável filtro onde é armazenado o nome a ser buscado
   ConnectivityResult _connectivityResult = ConnectivityResult.none;
 
   int calculateCrossAxisCount(double width) {
@@ -78,7 +78,7 @@ class _TelaInicialState extends State<TelaInicial> {
             IconButton(
               icon: const Icon(
                 Icons.info,
-                color: Colors.white,
+                color: Colors.black,
                 size: 20,
               ),
               onPressed: () {
@@ -137,7 +137,7 @@ class _TelaInicialState extends State<TelaInicial> {
       );
     } else {
       final atracoesFiltradas = atracoes
-          .where((atracao) =>
+          .where((atracao) => // Reduce para procurar os itens a partir do nome
               atracao.nome.toLowerCase().contains(filtro.toLowerCase()))
           .toList();
 
@@ -147,8 +147,8 @@ class _TelaInicialState extends State<TelaInicial> {
             Stack(
               alignment: Alignment.center,
               children: [
-                Image.network(
-                  'https://i.ibb.co/T1bgMpK/image.png',
+                Image.asset(
+                  'assets/imagens/tur1_2.png',
                   fit: BoxFit.cover,
                 ),
                 const Text(
@@ -184,12 +184,14 @@ class _TelaInicialState extends State<TelaInicial> {
             Column(
               children: atracoesFiltradas
                   .map((atracao) => GestureDetector(
+                        //Mapeia as atrações
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  DetalhesAtracaoScreen(atracao: atracao),
+                              builder:
+                                  (context) => // Context é a tela do celular
+                                      DetalhesAtracaoScreen(atracao: atracao),
                             ),
                           );
                         },
@@ -243,6 +245,42 @@ class _TelaInicialState extends State<TelaInicial> {
       return SingleChildScrollView(
         child: Column(
           children: [
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Image.asset(
+                  'assets/imagens/tur1_2.png',
+                  fit: BoxFit.cover,
+                ),
+                const Text(
+                  "Bem vindos a Campo Maior!",
+                  style: TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                Positioned(
+                  bottom: 16,
+                  left: 10,
+                  right: 10,
+                  child: TextField(
+                    onChanged: (value) {
+                      setState(() {
+                        filtro = value;
+                      });
+                    },
+                    decoration: const InputDecoration(
+                      labelText: 'Filtrar por nome',
+                      hintText: 'Digite o nome do local',
+                      prefixIcon: Icon(Icons.search),
+                      filled: true,
+                      fillColor: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(height: 16),
             Column(
               children: ondecebsFiltrados

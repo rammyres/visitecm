@@ -109,5 +109,20 @@ final atracoes = [
     ],
     localizacao:
         "https://www.google.com/maps/place/Campo+Maior,+PI,+64280-000/@-4.830191,-42.193815,14z/data=!3m1!4b1!4m6!3m5!1s0x7918c12151c6043:0x77c79894c552aebd!8m2!3d-4.8238312!4d-42.1667673!16s%2Fg%2F11bxfw3fgx?entry=ttu",
-  )
+  ),
+  Atracao(
+    id: "tur9",
+    nome: "Fazenda Tocaia",
+    fotos: [
+      "assets/imagens/tur9_1.png",
+      "assets/imagens/tur9_2.png",
+      "assets/imagens/tur9_4.png",
+    ],
+    descricao: [
+      "Rara fazenda cuja sede foi feita em formato de sobrado, a Tocaia, localizada na PI-114, com destino a Cabeceiras, é uma das mais antigas de Campo Maior, com sua sede tendo registro, pelo menos, desde 1830.",
+      "Atualmente a fazenda e sua região, que recebeu o mesmo nome, são conhecidos pela produção de mandioca e suas farinhadas; seus derivados como a goma de tapioca, beijús de farinhadas e a farinha são apreciadas pelos campomaiorenses.",
+    ],
+    localizacao:
+        "https://www.google.com/maps/place/Tocaia,+Campo+Maior+-+PI,+64110-000/@-4.5672255,-42.3085992,4329m/data=!3m2!1e3!4b1!4m6!3m5!1s0x7921697b11ca3c3:0x5d7accee56d4327a!8m2!3d-4.5672256!4d-42.298278!16s%2Fg%2F1ymshf8qx?entry=ttu",
+  ),
 ];

@@ -78,7 +78,7 @@ final ondecebs = [
       "assets/imagens/ceb6_3.png",
     ],
     descricao: [
-      "O Bar é um dos poucos remanscentes do completo de restaurantes e bares da Barragem Corredores.",
+      "O Bar é um dos poucos remanscentes do complexo de restaurantes e bares da Barragem Corredores.",
       "Funciona exclusivamente nos fins de semana e feriados",
     ],
     localizacao:

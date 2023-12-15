@@ -3,7 +3,7 @@ import 'package:visite_cm/modelos/atracao.dart';
 final atracoes = [
   Atracao(
     id: "tur1",
-    nome: "Açude Grade",
+    nome: "Açude Grande",
     fotos: [
       "assets/imagens/tur1_1.png",
       "assets/imagens/tur1_2.png",

@@ -51,7 +51,11 @@ class _TelaInicialState extends State<TelaInicial> {
   // Caso a conexão esteja inativa no momento da construção o botão será
   // um refresh, se não estiver o botão será o de favoritos
   Widget _construirBotaoFlutuante() {
-    return FloatingActionButton(
+    return FloatingActionButton.extended(
+      label: const Text(
+        "Favoritos",
+        style: TextStyle(fontSize: 16),
+      ),
       onPressed: () {
         if (_connectivityResult != ConnectivityResult.none) {
           _mostrarFavoritos();
@@ -59,7 +63,7 @@ class _TelaInicialState extends State<TelaInicial> {
           _refresh();
         }
       },
-      child: Icon(
+      icon: Icon(
         _connectivityResult != ConnectivityResult.none
             ? Icons.favorite
             : Icons.refresh,
@@ -201,6 +205,9 @@ class _TelaInicialState extends State<TelaInicial> {
                       ))
                   .toList(),
             ),
+            const SizedBox(
+              height: 50,
+            ),
           ],
         ),
       );
@@ -298,6 +305,9 @@ class _TelaInicialState extends State<TelaInicial> {
                         ),
                       ))
                   .toList(),
+            ),
+            const SizedBox(
+              height: 50,
             ),
           ],
         ),
